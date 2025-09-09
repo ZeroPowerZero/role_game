@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddxa0cdncrlx4"]
+
+[ext_resource type="Script" uid="uid://bqmaw0dumqnfb" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://b17e84f1pj5lp" path="res://client.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://cnsfrtuxv3hb3" path="res://host.tscn" id="3_fc0e3"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_80nbo")
+
+[node name="Client" parent="." instance=ExtResource("2_feb5d")]
+
+[node name="Host" parent="." instance=ExtResource("3_fc0e3")]

@@ -21,7 +21,7 @@ func _on_host_button_pressed() -> void:
 		return
 	
 	multiplayer.multiplayer_peer = peer
-	get_tree().change_scene_to_file("res://host.tscn")
+	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_join_button_pressed() -> void:
 	Global.player_name = name_input.text.strip_edges() 
@@ -38,4 +38,4 @@ func _on_join_button_pressed() -> void:
 		return
 
 	multiplayer.multiplayer_peer = peer
-	get_tree().change_scene_to_file("res://host.tscn")
+	get_tree().change_scene_to_file("res://game.tscn")
