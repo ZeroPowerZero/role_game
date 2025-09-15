@@ -2,29 +2,25 @@ extends Control
 
 @onready var name_input = $VBoxContainer/NameInput
 @onready var ip_input = $VBoxContainer/IPInput
-@onready var info_label = $VBoxContainer/InfoLabel
+@onready var info_label = $VBoxContainer/InfoLabel 
 
-const PORT = 9999
-
-
+const PORT = 9520
+const MAX_CONNECTIONS = 4
 func _ready():
 	info_label.text = ""
 
 func _on_host_button_pressed() -> void:
-	Global.player_name = name_input.text.strip_edges()
+	Global.player_name = name_input.text.strip_edges().to_upper()
 	Global.is_host = true
-
-
 	var peer = ENetMultiplayerPeer.new()
-	if peer.create_server(PORT) != OK:
+	if peer.create_server(PORT,MAX_CONNECTIONS) != OK:
 		info_label.text = "Failed to start server!"
 		return
-	
 	multiplayer.multiplayer_peer = peer
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://scenes/lobby.tscn")
 
 func _on_join_button_pressed() -> void:
-	Global.player_name = name_input.text.strip_edges() 
+	Global.player_name = name_input.text.strip_edges().to_upper() 
 	Global.is_host = false
 
 
@@ -38,4 +34,4 @@ func _on_join_button_pressed() -> void:
 		return
 
 	multiplayer.multiplayer_peer = peer
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://scenes/lobby.tscn")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://8a2fdi4n04kk"]
+
+[ext_resource type="Script" uid="uid://cwuxy48scchgy" path="res://scripts/player_icon.gd" id="1_3ldl0"]
+[ext_resource type="Texture2D" uid="uid://crc5etuw674vm" path="res://icon.svg" id="1_grgdn"]
+
+[node name="PlayerIcon" type="Node2D"]
+script = ExtResource("1_3ldl0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -96.0
+offset_right = 135.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ID" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_grgdn")
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
