@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://jtc74xy8i2s5"]
+
+[ext_resource type="Script" uid="uid://cixy50lrtexwr" path="res://scripts/lobby.gd" id="1_o1atq"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1atq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -256.0
+offset_right = 553.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 270
+theme_override_constants/v_separation = 300
+columns = 4
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.949
+anchor_top = 0.959
+anchor_right = 0.99
+anchor_bottom = 0.959
+offset_left = -199.0
+offset_top = -81.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Start Game"

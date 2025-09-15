@@ -1,23 +1,26 @@
 extends Control
 
 @onready var name_list_label = $PlayerNameLabel  # Make this a Label or VBoxContainer
-
+@onready var message_box = $MessageBox
+var game
 func _ready() :
-	Global.player_names.append(Global.player_name)
+	game = get_parent()
+	add_player(Global.player_name)
 
-@rpc("any_peer","reliable")
-func name_adding(players_names):
-	Global.player_names.append(players_names)
-
-
+func add_player(name):
+	Global.player_names.append(name)
+	var message = name + " just entered the game"
+	print(message)
+	message_box.text += message +"\n"
 func _on_button_pressed() -> void:
-	var result : String =""
-	for item in Global.player_names :
-		result +=item + "\n"
-	
-	name_list_label.text = result
-	
-	if not multiplayer.is_server():
-		rpc_id(1,"name_adding",Global.player_name)
-		#print(get_tree().get_network_unique_id())
+	var result : String ="water"
+	game.broadcast_message.rpc(result)
+	#for item in Global.player_names :
+		#result +=item + "\n"
+	#
+	#name_list_label.text = result
+	#
+	#if not multiplayer.is_server():
+		#rpc_id(1,"name_adding",Global.player_name)
+		##print(get_tree().get_network_unique_id())
 	

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddxa0cdncrlx4"]
+
+[ext_resource type="Script" uid="uid://bqmaw0dumqnfb" path="res://scripts/game.gd" id="1_uwrxv"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="MessageBox" type="RichTextLabel" parent="."]
+offset_left = 18.0
+offset_top = 403.0
+offset_right = 606.0
+offset_bottom = 626.0

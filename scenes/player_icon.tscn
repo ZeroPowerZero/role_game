@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://8a2fdi4n04kk"]
+
+[ext_resource type="Script" uid="uid://cwuxy48scchgy" path="res://scripts/player_icon.gd" id="1_3ldl0"]
+[ext_resource type="Texture2D" uid="uid://b8gcew35x4sww" path="res://assets/horse.jpg" id="2_3ldl0"]
+
+[node name="PlayerIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 330.0
+script = ExtResource("1_3ldl0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 330.0
+color = Color(0.654815, 0.392078, 0.857862, 0.290196)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 330.0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_3ldl0")
+expand_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+vertical_alignment = 1
