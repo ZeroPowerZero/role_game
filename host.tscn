@@ -11,21 +11,3 @@ script = ExtResource("1_0wu4t")
 layout_mode = 0
 offset_right = 435.0
 offset_bottom = 130.0
-
-[node name="Button" type="Button" parent="."]
-modulate = Color(0.352941, 1, 1, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 235.0
-offset_top = 292.0
-offset_right = 505.0
-offset_bottom = 376.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "button"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
