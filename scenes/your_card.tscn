@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdeoj8kaiwij"]
+
+[ext_resource type="Script" uid="uid://ik54og0fckn1" path="res://scripts/your_card.gd" id="1_a361s"]
+[ext_resource type="PackedScene" uid="uid://dcmg55csjencc" path="res://scenes/card.tscn" id="2_4lb1o"]
+
+[node name="YourCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a361s")
+
+[node name="Card" parent="." instance=ExtResource("2_4lb1o")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 453.0
+offset_top = 111.0
+offset_right = 661.0
+offset_bottom = 372.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" parent="Card" index="1"]
+text = ""
+
+[editable path="Card"]

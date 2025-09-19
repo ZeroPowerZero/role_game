@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bexbngr23t4iq"]
+
+[ext_resource type="Script" uid="uid://h8hgr2sfonq8" path="res://scripts/chor_selection_scene.gd" id="1_3wpiw"]
+[ext_resource type="PackedScene" uid="uid://8a2fdi4n04kk" path="res://scenes/player_icon.tscn" id="1_25mxr"]
+
+[node name="ChorSelectionScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3wpiw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 298.0
+offset_top = 161.0
+offset_right = 929.0
+offset_bottom = 532.0
+theme_override_constants/separation = 110
+alignment = 1
+
+[node name="BoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 335
+
+[node name="PlayerIcon" parent="HBoxContainer/BoxContainer" instance=ExtResource("1_25mxr")]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="HBoxContainer/BoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[node name="BoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 335
+
+[node name="PlayerIcon" parent="HBoxContainer/BoxContainer2" instance=ExtResource("1_25mxr")]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "Select"
+
+[connection signal="pressed" from="HBoxContainer/BoxContainer/Button1" to="." method="selected_player" binds= [0]]
+[connection signal="pressed" from="HBoxContainer/BoxContainer2/Button2" to="." method="selected_player" binds= [1]]

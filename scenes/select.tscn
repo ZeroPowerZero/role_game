@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dam4qhpegl12k"]
+
+[ext_resource type="Script" uid="uid://dshpg63ysnsrp" path="res://scripts/select.gd" id="1_rtpy7"]
+[ext_resource type="PackedScene" uid="uid://dcmg55csjencc" path="res://scenes/card.tscn" id="1_x8rwt"]
+
+[node name="Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtpy7")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 195.0
+offset_right = -47.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 275
+theme_override_constants/v_separation = -155
+columns = 4
+
+[node name="Card" parent="GridContainer" instance=ExtResource("1_x8rwt")]
+layout_mode = 2
+
+[node name="Card2" parent="GridContainer" instance=ExtResource("1_x8rwt")]
+layout_mode = 2
+
+[node name="Card3" parent="GridContainer" instance=ExtResource("1_x8rwt")]
+layout_mode = 2
+
+[node name="Card4" parent="GridContainer" instance=ExtResource("1_x8rwt")]
+layout_mode = 2
+
+[connection signal="pressed" from="GridContainer/Card/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Card2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Card3/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Card4/Button" to="." method="_on_button_pressed"]
+
+[editable path="GridContainer/Card"]
+[editable path="GridContainer/Card2"]
+[editable path="GridContainer/Card3"]
+[editable path="GridContainer/Card4"]
