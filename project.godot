@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 
+[gui]
+
+theme/custom="uid://cmluogdb5n1ct"
+
 [rendering]
 
 renderer/rendering_method="mobile"

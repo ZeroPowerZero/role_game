@@ -1,7 +1,7 @@
 extends Control
-
 @onready var choice1 = $HBoxContainer/BoxContainer/PlayerIcon
 @onready var choice2 = $HBoxContainer/BoxContainer2/PlayerIcon
+
 var l_choices :Array
 func set_options(choices):
 	l_choices=choices
