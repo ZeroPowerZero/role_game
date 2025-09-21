@@ -31,6 +31,7 @@ func goto_initial_stage():
 		message_box.show()
 #Filles the G.chit_list with random roles from G.roles array 
 func fill_chits_array():
+	Global.chit_list.clear()
 	#Randomize the roles
 	Global.roles.shuffle()
 	#Assign them in to G.chit_list
@@ -54,6 +55,7 @@ func show_select_node():
 	throw_chit_button.hide()
 	message_box.hide()
 	card_select_scene.show()
+	
 
 #Called when the a card in selected in the select scene
 func selected_card():
@@ -65,11 +67,12 @@ func selected_card():
 	your_card_scene.set_role(Global.player_role)
 	#Now show the card
 	your_card_scene.show()
-	#If King
-	if Global.player_role == Global.RAJA:
-		$RajaButton.show()
-		
-		
+	
+	# Notify host that this player has drawn
+	Global.drawn_chits_no.rpc()
+	print(Global.done)
+
+
 @rpc("any_peer")
 func call_the_wazir(king_id:int):
 	if Global.player_role==Global.WAZIR:
@@ -113,3 +116,7 @@ func calculate_result(wazir_won:bool):
 func _on_raja_button_pressed() -> void:
 	call_the_wazir.rpc(Global.player_id) 
 	$RajaButton.hide()
+
+func show_raja_button():
+	if Global.player_role == Global.RAJA:
+		$RajaButton.show()

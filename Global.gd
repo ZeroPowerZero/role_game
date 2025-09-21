@@ -72,10 +72,23 @@ func update_chit_list(list:Array):
 	chit_list=list
 	
 #Updates the chit_list for this instance
-@rpc("call_remote","reliable")
+@rpc("any_peer","call_local","reliable")
 func update_results(updated_result:Dictionary):
 	print(player_name," updated its results")
 	results = updated_result
 	round+=1
 	score += results[player_id]
 	game.score_label.text= "score : "+ str(score)
+
+#to let host know everyone has drawn his chits
+var done = 0
+
+# Called by each peer when they finish drawing their chit
+@rpc("any_peer","call_local")
+func drawn_chits_no():
+	done += 1
+	# Only the host should check this
+	if done >= player_names.size():
+		# All players have drawn
+		game.show_raja_button()
+		done = 0  # Reset for next round
