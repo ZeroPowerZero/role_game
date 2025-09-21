@@ -7,6 +7,7 @@ var is_host = Global.is_host
 func _ready() -> void:
 	Global.lobby= self
 	if is_host:
+		Global.player_id=0 # BTW this line took 2 hours of debugging to add (Fixed a major Bug with Multiple Players with the same id )
 		Global.add_player(Global.player_name)
 		update_lobby()
 	else:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdeoj8kaiwij"]
 
 [ext_resource type="Script" uid="uid://ik54og0fckn1" path="res://scripts/your_card.gd" id="1_a361s"]
-[ext_resource type="PackedScene" uid="uid://dcmg55csjencc" path="res://scenes/card.tscn" id="2_4lb1o"]
+[ext_resource type="Texture2D" uid="uid://38l45kdp2fx" path="res://assets/Raja.png" id="3_4lb1o"]
 
 [node name="YourCard" type="Control"]
 layout_mode = 3
@@ -12,20 +12,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a361s")
 
-[node name="Card" parent="." instance=ExtResource("2_4lb1o")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 453.0
-offset_top = 111.0
-offset_right = 661.0
-offset_bottom = 372.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(1.5, 1.5)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -150.0
+offset_right = 125.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4lb1o")
+expand_mode = 1
 
-[node name="Label" parent="Card" index="1"]
-text = ""
-
-[editable path="Card"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 151.0
+offset_right = 136.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.10748, 0.10748, 0.10748, 1)
+horizontal_alignment = 1
+autowrap_mode = 3

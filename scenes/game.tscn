@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddxa0cdncrlx4"]
+[gd_scene load_steps=6 format=3 uid="uid://ddxa0cdncrlx4"]
 
 [ext_resource type="Script" uid="uid://bqmaw0dumqnfb" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dam4qhpegl12k" path="res://scenes/select.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bdeoj8kaiwij" path="res://scenes/your_card.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bexbngr23t4iq" path="res://scenes/chor_selection_scene.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dw7seqdgmj5vt" path="res://scenes/result.tscn" id="5_iywne"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -21,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -29,17 +29,24 @@ offset_left = 17.0
 offset_top = 14.0
 offset_right = 450.0
 offset_bottom = 175.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
-text = "Water"
+text = "Name"
 
 [node name="MessageBox" type="RichTextLabel" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 282.0
-offset_top = 217.0
-offset_right = 870.0
-offset_bottom = 440.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -111.5
+offset_right = 294.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.384314, 0, 1)
 theme_override_font_sizes/normal_font_size = 32
 text = "Wait of the Host to throw"
 horizontal_alignment = 1
@@ -47,11 +54,18 @@ vertical_alignment = 1
 
 [node name="ChitButton" type="Button" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 390.0
-offset_top = 276.0
-offset_right = 758.0
-offset_bottom = 387.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -55.5
+offset_right = 184.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Throw the Chits"
 
@@ -69,20 +83,52 @@ layout_mode = 1
 
 [node name="RajaButton" type="Button" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 443.0
-offset_top = 466.0
-offset_right = 691.0
-offset_bottom = 543.0
-text = "Mera Wazir Kon Hai be "
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -79.0
+offset_right = 105.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Mera Wazir Kon Hai"
 
 [node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 981.0
-offset_top = 19.0
-offset_right = 1024.0
-offset_bottom = 42.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -207.0
+offset_bottom = 56.0
+grow_horizontal = 0
 text = "Score"
+vertical_alignment = 1
+
+[node name="Result" parent="." instance=ExtResource("5_iywne")]
+visible = false
+layout_mode = 1
+
+[node name="ChitButton2" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -73.0
+offset_right = -27.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Throw the Chits"
 
 [connection signal="pressed" from="ChitButton" to="." method="_on_chit_button_pressed"]
 [connection signal="pressed" from="RajaButton" to="." method="_on_raja_button_pressed"]
+[connection signal="pressed" from="ChitButton2" to="." method="_on_chit_button_pressed"]
