@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://dcmg55csjencc"]
+[gd_scene load_steps=5 format=3 uid="uid://dcmg55csjencc"]
+
+[ext_resource type="Texture2D" uid="uid://cg3dhy722bfbn" path="res://assets/backofthecard.png" id="1_d81rb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d81rb"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktuci"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u4wf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -10,17 +21,25 @@ offset_bottom = -398.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 250.0
+texture = ExtResource("1_d81rb")
+expand_mode = 1
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_right = 202.0
 offset_bottom = 250.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 108.0
-offset_right = 201.0
-offset_bottom = 158.0
-text = "Click to Select"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_d81rb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ktuci")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6u4wf")

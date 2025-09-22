@@ -1,4 +1,5 @@
 extends Control
 
 func set_role(role:String):
-	$Card/Label.text = role
+	$TextureRect.texture= load(Global.cards[role])
+	$Label.text=Global.ROLE_MESSAGES[role]
