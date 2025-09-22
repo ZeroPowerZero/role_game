@@ -42,7 +42,7 @@ var player_role : String #The role of the player
 const score_per_role={RAJA:1000,WAZIR:800,SIPAHI:700,CHOR:0}
 
 #Networking 
-var latency:float = 0.1 #TODO Latency of the network 
+var latency:float = 0.4 #TODO Latency of the network 
 
 # Resource variables :
 
@@ -110,7 +110,7 @@ func update_results(updated_result):
 var done = 0
 
 # Called by each peer when they finish drawing their chit
-@rpc("any_peer","call_local")
+@rpc("any_peer","call_local","reliable")
 func drawn_chits_no():
 	done += 1
 	# Only the host should check this
