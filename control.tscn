@@ -74,7 +74,6 @@ value = 3.0
 [node name="IPInput" type="LineEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(400, 40)
 layout_mode = 2
-placeholder_text = "Enter host IP"
 
 [node name="HostButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -95,6 +94,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="YourIp" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "IP: "
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 1

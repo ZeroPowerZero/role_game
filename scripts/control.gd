@@ -9,6 +9,7 @@ var PORT = 9520 ## The port number
 
 const MAX_CONNECTIONS = 4
 func _ready():
+	$VBoxContainer/YourIp.text ="Your IP : " + get_ip_string()
 	info_label.text = ""
 	name_input.text= str(int(randf()*100))
 
@@ -32,7 +33,7 @@ func _on_join_button_pressed() -> void:
 	
 	var ip = ip_input.text.strip_edges()
 	if ip == "":
-		ip = "127.0.0.1"
+		ip = "127.0.0.1";
 
 	var peer = ENetMultiplayerPeer.new()
 	if peer.create_client(ip, PORT) != OK:
@@ -46,4 +47,14 @@ func _on_join_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	get_tree().quit()
 
-	
+func  get_ip_string()->String:
+	var ip ="Network Error"
+	if OS.get_name() == "Android":
+		for device in IP.get_local_interfaces():
+			if device["name"] == "ap0":
+				ip=device["addresses"][0]
+	else:
+		for device in IP.get_local_interfaces():
+			if device["friendly"] == "Wi-Fi":
+				ip=device["addresses"][0]
+	return ip

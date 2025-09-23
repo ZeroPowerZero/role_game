@@ -30,7 +30,7 @@ func hide_all():
 	throw_chit_button2.hide()
 	result_scene.hide()
 	
-@rpc("any_peer","call_local")
+@rpc("any_peer","call_local","reliable")
 func goto_initial_stage():
 	hide_all()
 	if Global.is_host:
@@ -60,7 +60,7 @@ func _on_chit_button_pressed() -> void:
 	show_select_node.rpc()
 
 #Shows the Select Node and and hides other components 
-@rpc("call_local")
+@rpc("call_local","reliable")
 func show_select_node():
 	hide_all()
 	card_select_scene.show()
@@ -146,7 +146,7 @@ func calculate_result(wazir_won:bool):
 	return result
 
 #
-@rpc("call_local")
+@rpc("call_local","reliable")
 func show_result(wazir_won:bool):
 	hide_all()
 	result_scene.show_message(Global.get_message(wazir_won))
@@ -164,7 +164,7 @@ func show_raja_button():
 		$RajaButton.show()
 
 #Ends the Game by Showing the end screen
-@rpc("any_peer","call_local")
+@rpc("any_peer","call_local","reliable")
 func end_game(wazir_won:bool):
 	hide_all()
 	result_scene.show_message(Global.get_message(wazir_won))

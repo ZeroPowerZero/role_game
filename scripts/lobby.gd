@@ -38,3 +38,10 @@ func change_scene():
 	
 func _on_button_pressed() -> void:
 	change_scene.rpc()
+
+
+func _on_back_home_pressed() -> void:
+	multiplayer.multiplayer_peer.close();
+	multiplayer.multiplayer_peer=null;
+	Global.reset()
+	get_tree().change_scene_to_file("res://control.tscn")
