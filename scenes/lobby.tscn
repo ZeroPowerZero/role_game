@@ -65,6 +65,7 @@ shortcut = SubResource("Shortcut_5gu6x")
 text = "Start Game"
 
 [node name="BackHome" type="Button" parent="."]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 27.0
 offset_right = 104.0

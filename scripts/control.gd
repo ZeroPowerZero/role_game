@@ -11,11 +11,14 @@ const MAX_CONNECTIONS = 4
 func _ready():
 	$VBoxContainer/YourIp.text ="Your IP : " + get_ip_string()
 	info_label.text = ""
-	name_input.text= str(int(randf()*100))
 
 func _on_host_button_pressed() -> void:
 	
 	Global.player_name = name_input.text.strip_edges().to_upper()
+	if(Global.player_name.length()==0):
+		info_label.text="Please Enter a name !"
+		return
+	
 	Global.is_host = true
 	Global.round_count = int(rounds_input.value)
 	
@@ -29,6 +32,10 @@ func _on_host_button_pressed() -> void:
 func _on_join_button_pressed() -> void:
 
 	Global.player_name = name_input.text.strip_edges().to_upper() 
+
+	if(Global.player_name.length()==0):
+		info_label.text="Please Enter a name !"
+		return
 	Global.is_host = false
 	
 	var ip = ip_input.text.strip_edges()
