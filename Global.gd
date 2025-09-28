@@ -3,7 +3,8 @@ extends Node
 #References to the Nodes 
 var lobby # The reference to the lobby scene
 var game # The reference to the Game scene
-
+const PORT= 9999 #The game port
+const UDP_PORT=9998 #The port for the udp server
 #Const for Role Names (Spelling issues ke liye )
 const RAJA="Raja"
 const WAZIR="Wazir"
