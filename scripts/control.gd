@@ -5,13 +5,20 @@ extends Control
 @onready var rounds_input =$VBoxContainer/RoundsInput
 @onready var info_label = $VBoxContainer/InfoLabel 
 
-var PORT = 9520 ## The port number
-
+var PORT = Global.PORT
+var client_UDP:PacketPeerUDP = PacketPeerUDP.new()
+var found=false
 const MAX_CONNECTIONS = 4
 func _ready():
 	$VBoxContainer/YourIp.text ="Your IP : " + get_ip_string()
 	info_label.text = ""
-
+func _process(_delta: float) -> void:
+	if not found and client_UDP.get_available_packet_count()>0:
+		var packet = client_UDP.get_packet()
+		ip_input.text = client_UDP.get_packet_ip()
+		info_label.text="Found "+packet.get_string_from_ascii() +"'s game "
+		found = true
+	
 func _on_host_button_pressed() -> void:
 	
 	Global.player_name = name_input.text.strip_edges().to_upper()
@@ -65,3 +72,19 @@ func  get_ip_string()->String:
 			if device["friendly"] == "Wi-Fi":
 				ip=device["addresses"][0]
 	return ip
+
+func get_ip_stater()->String:
+	var ip= get_ip_string()
+	var l =0
+	for i in range(len(ip)-1,0,-1):
+		if ip[i] =='.':
+			l = i 
+			break
+	return ip.substr(0,l+1)
+func _on_find_game_pressed() -> void:
+	found=false
+	var address_starter =get_ip_stater()
+	for i in range(254):
+		client_UDP.set_dest_address(address_starter+str(i),Global.UDP_PORT)
+		var msg=get_ip_string()
+		client_UDP.put_packet(msg.to_ascii_buffer())
