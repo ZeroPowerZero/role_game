@@ -116,7 +116,7 @@ func update_result(wazir_won:bool):
 	#Then show the result on each client 
 	#if its not the last round:
 	print("ROUNDS : ", Global.round_count," : ",Global.current_round)
-	if not (Global.round_count==Global.current_round):
+	if not (Global.round_count >=Global.current_round):
 		show_result.rpc(wazir_won)
 	else:
 		end_game.rpc(wazir_won)

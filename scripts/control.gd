@@ -62,16 +62,10 @@ func _on_button_2_pressed() -> void:
 	get_tree().quit()
 
 func  get_ip_string()->String:
-	var ip ="Network Error"
-	if OS.get_name() == "Android":
-		for device in IP.get_local_interfaces():
-			if device["name"] == "ap0":
-				ip=device["addresses"][0]
-	else:
-		for device in IP.get_local_interfaces():
-			if device["friendly"] == "Wi-Fi":
-				ip=device["addresses"][0]
-	return ip
+	for ip in IP.get_local_addresses():
+		if ip.substr(0,2) in ["19","17","10"]:
+			return ip
+	return "Network Error"
 
 func get_ip_stater()->String:
 	var ip= get_ip_string()
